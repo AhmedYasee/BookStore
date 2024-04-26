@@ -1,0 +1,41 @@
+﻿@model MVC.task.ViewModel.UpdateBook
+<h1>Update Book</h1>
+
+
+<form method="get" action="/Book/SaveUpdateBook" data-id="@Model.id">
+
+	<input asp-for="id" hidden />
+	<div>
+		<label asp-for="name"></label>
+		<input asp-for="name" class="form-control" />
+		<span asp-validation-for="name" class="text-danger"></span>
+	</div>
+
+	<div>
+		<label asp-for="price"></label>
+		<input asp-for="price" class="form-control" type="" />
+		<span asp-validation-for="price" class="text-danger"></span>
+	</div>
+
+
+
+
+	<div>
+		<label>Category Id</label>
+		<select asp-for="CategoryId" class="form-control">
+			@foreach (var category in ViewData["cat"] as List<Category>)
+			{
+				<option value="@category.Id">@category.Name</option>
+			}
+		</select>
+		<span asp-validation-for="CategoryId" class="text-danger"></span>
+	</div>
+
+	<input type="submit" class="btn btn-primary mt-5" />
+</form>
+
+@section Scripts{
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+}

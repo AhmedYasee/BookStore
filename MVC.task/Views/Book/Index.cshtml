@@ -1,0 +1,18 @@
+﻿
+<a asp-action="AddBook" asp-controller="Book" class="btn btn-primary">New Book</a>
+<h1>List of Books</h1>
+@foreach (Book Books in Model)
+{
+    <div class="col-sm-6">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">@Books.id</h5>
+                <p class="card-text">@Books.name</p>
+                <p class="card-text">@Books.price $ </p>
+                <a href="/Book/Details/@Books.id" class="btn btn-primary">Book Details</a>
+                <a class="btn btn-secondary" href="/Book/UpdateBook/@Books.id">Update Book</a>
+                <a href="/Book/DeleteBook/@Books.id" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+}
